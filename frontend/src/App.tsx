@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { useIsConnected } from "./hooks/useIsConnected";
 import { useFuel } from "./hooks/useFuel";
-import { WalletLocked } from "fuels";
+import { Contract, WalletLocked } from "fuels";
 import { ContractAbi__factory } from "./contracts"
 import AllItems from "./components/AllItems";
 import ListItem from "./components/ListItem";
@@ -9,8 +9,10 @@ import { Button } from "@chakra-ui/react";
 import "./App.css";
 import NavBar from "./components/Layout/Navbar";
 
-const CONTRACT_ID = "0x7aa5f695fcecf7e208a1bffa64fdeb5df1fbf388551f0d0266c00f06d57f1630"
+const CONTRACT_ID = "0xb7b46092a8988602c03f72a13ab732146963d6fca62b19e0bafa7497d13cfcab"
 // const CONTRACT_ID = "0xf7cea6129391fb4b5b0fb9dda9814a248ea64723abbcdf43711684c95d3d950f"
+// 0xb7b46092a8988602c03f72a13ab732146963d6fca62b19e0bafa7497d13cfcab
+// 0x9cc68bdcdcef07cb7efef4395ad01d990fb0f31520df3e50cdb6f66d96559e5c
 
 function App() {
   const [wallet, setWallet] = useState<WalletLocked>();
@@ -36,6 +38,7 @@ function App() {
   }, [fuel, wallet]);
 
   { isConnected && console.log("Connected to wallet: ", wallet?.address , wallet?.address.toHexString())}
+  { Contract && console.log("Contract: ", contract)}
 
   return (
     <div className="App">

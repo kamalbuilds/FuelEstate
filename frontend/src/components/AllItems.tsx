@@ -17,6 +17,9 @@ export default function AllItems({ contract }: AllItemsProps) {
       if (contract !== null) {
         try {
           let { value } = await contract.functions.get_count().get();
+          console.log(value, "value");
+          const getfirst = await contract.functions.get_property(1).get();
+          console.log(getfirst, "getfirst")
           let formattedValue = parseFloat(value.format()) * 1_000_000_000;
           setItemCount(formattedValue);
           let max = formattedValue + 1;
@@ -25,6 +28,7 @@ export default function AllItems({ contract }: AllItemsProps) {
             let resp = await contract.functions.get_property(i).get();
             tempItems.push(resp.value)
           }
+          console.log(value, tempItems, "tempItems")
           setItems(tempItems)
           setStatus('success')
         } catch (e) {

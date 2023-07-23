@@ -20,6 +20,17 @@ export default function ListItem({ contract }: ListItemsProps) {
   const [price, setPrice] = useState<string>("0");
   const [status, setStatus] = useState<'success' | 'error' | 'loading' | 'none'>('none');
 
+  const testData = {
+    name: "Luxury Apartment",
+    location: "New York City",
+    area_sq_ft: "2000",
+    bedrooms: 3,
+    bathrooms: 2,
+    description: "A beautiful luxury apartment in the heart of the city.",
+    is_furnished: true,
+    images_url: "https://rb.gy/ufpa5",
+  };
+
   type PropertyMetadata = {
     name: string;
     location: string;
@@ -50,6 +61,23 @@ export default function ListItem({ contract }: ListItemsProps) {
         console.log(metadata);
         // @ts-ignore
         await contract.functions.list_property(priceInput, metadata).call();
+        setStatus('success');
+        showToast("success", "Item successfully listed!");
+      } catch (e) {
+        console.log("ERROR:", e);
+        setStatus('error');
+        showToast("error", "Error listing item. Please try again.");
+      }
+    } else {
+      console.log("ERROR: Contract is null");
+    }
+  }
+
+  async function test() {
+    if (contract !== null) {
+      try {
+        let priceInput = bn.parseUnits(price.toString());
+        await contract.functions.list_property(priceInput, testData).call();
         setStatus('success');
         showToast("success", "Item successfully listed!");
       } catch (e) {
@@ -179,6 +207,7 @@ export default function ListItem({ contract }: ListItemsProps) {
           </FormControl>
 
           <Button type="submit" mt={4} colorScheme="blue">List item</Button>
+          <Button onClick={test} mt={4} colorScheme="blue">Test</Button>
         </form>
       }
 

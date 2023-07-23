@@ -9,22 +9,20 @@ use std::{
         this_balance,
     },
     token::transfer,
-    bytes:: Bytes,
-    string::String,
+    // bytes:: Bytes,
+    // string::String,
 };
 
-struct Test {
-    description: String,
-}
+
 struct PropertyMetadata {
     name: str[10],
-    location: b256,
-    area_sq_ft: b256,
+    location: str[11],
+    area_sq_ft: str[5],
     bedrooms: u8,
     bathrooms: u8,
-    description: str[100],
+    description: str[150],
     is_furnished: bool,
-    images_url: str[10],
+    images_url: str[19],
 }
 
 
@@ -53,9 +51,6 @@ abi RealEstateStore {
 
     #[storage(read)]
     fn withdraw_funds();
-
-    #[storage(read)]
-    fn get_count() -> u64;
 
     #[storage(read)]
     fn get_count() -> u64;
