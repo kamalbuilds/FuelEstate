@@ -9,10 +9,15 @@ use std::{
         this_balance,
     },
     token::transfer,
+    bytes:: Bytes,
+    string::String,
 };
 
+struct Test {
+    description: String,
+}
 struct PropertyMetadata {
-    name: b256,
+    name: str[10],
     location: b256,
     area_sq_ft: b256,
     bedrooms: u8,
@@ -21,6 +26,7 @@ struct PropertyMetadata {
     is_furnished: bool,
     images_url: str[10],
 }
+
 
 struct Property {
     id: u64,

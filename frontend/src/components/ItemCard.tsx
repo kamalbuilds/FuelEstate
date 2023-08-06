@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { ItemOutput } from "../contracts/ContractAbi";
+import { PropertyOutput } from "../contracts/ContractAbi";
 import { ContractAbi } from "../contracts";
 import { Button } from "@chakra-ui/react";
 
 interface ItemCardProps {
   contract: ContractAbi | null;
-  item: ItemOutput;
+  item: PropertyOutput;
 }
 
 const assetId = "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -17,7 +17,7 @@ export default function ItemCard({ item, contract }: ItemCardProps) {
     if (contract !== null) {
       setStatus('loading')
       try {
-        await contract.functions.buy_item(item.id)
+        await contract.functions.buy_property(item.id)
         .txParams({ variableOutputs: 1 })
         .callParams({
             forward: [item.price, assetId],
@@ -29,14 +29,15 @@ export default function ItemCard({ item, contract }: ItemCardProps) {
       }
     }
   }
+  console.log("Item: ", item)
 
   return (
     <div className="item-card">
       <div>Id: {parseFloat(item.id.format()) * 1_000_000_000}</div>
-      <div>Metadata: {item.metadata}</div>
-      <div>Owner: {item.owner.Address?.value}</div>
+      {/* <div>Metadata: {item.id}</div> */}
+      {/* <div>Owner: {item.owner.Address?.value}</div>
       <div>Price: {parseFloat(item.price.format())} ETH</div>
-      <div>Total Bought: {parseFloat(item.total_bought.format()) * 1_000_000_000}</div>
+      <div>Total Bought: {parseFloat(item.total_bought.format()) * 1_000_000_000}</div> */}
       {status === 'success' && <div>Purchased ✅</div>}
       {status === 'error' && <div>Something went wrong ❌</div>}
       {status === 'none' &&  <Button onClick={handleBuyItem}>Buy Item</Button>}

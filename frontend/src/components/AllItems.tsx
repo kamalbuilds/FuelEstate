@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ContractAbi } from "../contracts";
-import { ItemOutput } from "../contracts/ContractAbi";
+import { PropertyOutput } from "../contracts/ContractAbi";
 import ItemCard from "./ItemCard";
 
 interface AllItemsProps {
@@ -8,7 +8,7 @@ interface AllItemsProps {
 }
 
 export default function AllItems({ contract }: AllItemsProps) {
-  const [items, setItems] = useState<ItemOutput[]>([]);
+  const [items, setItems] = useState<PropertyOutput[]>([]);
   const [itemCount, setItemCount] = useState<number>(0);
   const [status, setStatus] = useState<'success' | 'loading' | 'error'>('loading');
 
@@ -22,7 +22,7 @@ export default function AllItems({ contract }: AllItemsProps) {
           let max = formattedValue + 1;
           let tempItems = [];
           for(let i=1; i < max; i++){
-            let resp = await contract.functions.get_item(i).get();
+            let resp = await contract.functions.get_property(i).get();
             tempItems.push(resp.value)
           }
           setItems(tempItems)

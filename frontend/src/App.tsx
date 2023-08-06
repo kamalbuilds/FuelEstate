@@ -9,7 +9,8 @@ import { Button } from "@chakra-ui/react";
 import "./App.css";
 import NavBar from "./components/Layout/Navbar";
 
-const CONTRACT_ID = "0xf7cea6129391fb4b5b0fb9dda9814a248ea64723abbcdf43711684c95d3d950f"
+const CONTRACT_ID = "0x7aa5f695fcecf7e208a1bffa64fdeb5df1fbf388551f0d0266c00f06d57f1630"
+// const CONTRACT_ID = "0xf7cea6129391fb4b5b0fb9dda9814a248ea64723abbcdf43711684c95d3d950f"
 
 function App() {
   const [wallet, setWallet] = useState<WalletLocked>();

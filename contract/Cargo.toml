@@ -1,9 +1,8 @@
 [package]
 name = "sway-store"
-description = "A cargo-generate template for Rust + Sway integration testing."
+description = "FuelEstate Sway Store"
 version = "0.1.0"
-edition = "2021"
-authors = ["sarahschwartz <58856580+sarahschwartz@users.noreply.github.com>"]
+edition = "2023"
 license = "Apache-2.0"
 
 [dev-dependencies]
