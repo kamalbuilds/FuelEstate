@@ -15,21 +15,20 @@ export default function ListItem({ contract }: ListItemsProps) {
   const [bedrooms, setBedrooms] = useState<number>(0);
   const [bathrooms, setBathrooms] = useState<number>(0);
   const [description, setDescription] = useState<string>("");
-  const [isFurnished, setIsFurnished] = useState<boolean>(false);
   const [imagesUrl, setImagesUrl] = useState<string[]>([]);
   const [price, setPrice] = useState<string>("0");
   const [status, setStatus] = useState<'success' | 'error' | 'loading' | 'none'>('none');
 
   const testData = {
-    name: "Luxury Apartment",
-    location: "New York City",
+    name: "Luxury Apt",
+    location: "NewYork Cit",
     area_sq_ft: "2000",
     bedrooms: 3,
     bathrooms: 2,
-    description: "A beautiful luxury apartment in the heart of the city.",
-    is_furnished: true,
+    description: "Veryshortd",
     images_url: "https://rb.gy/ufpa5",
   };
+      // A beautiful luxury apartment in the heart of the city.
 
   type PropertyMetadata = {
     name: string;
@@ -38,7 +37,6 @@ export default function ListItem({ contract }: ListItemsProps) {
     bedrooms: number;
     bathrooms: number;
     description: string;
-    is_furnished: boolean;
     images_url: string[];
     };
 
@@ -54,7 +52,6 @@ export default function ListItem({ contract }: ListItemsProps) {
           bedrooms,
           bathrooms,
           description,
-          is_furnished: isFurnished,
           images_url: imagesUrl,
         };
         const priceInput = bn.parseUnits(price.toString());
@@ -100,11 +97,12 @@ export default function ListItem({ contract }: ListItemsProps) {
   }
 
   return (
-    <Box p={4}>
+    <div className="flex justify-center items-center min-h-screen">
+    <Box p={8}>
       <Text fontSize="2xl" fontWeight="bold">List an Item</Text>
       {status === 'none' &&
         <form onSubmit={handleSubmit}>
-          <FormControl mt={4}>
+          <FormControl mt={4} p={12}>
             <FormLabel htmlFor="name">Name:</FormLabel>
             <Input
               id="name"
@@ -171,16 +169,6 @@ export default function ListItem({ contract }: ListItemsProps) {
           </FormControl>
 
           <FormControl mt={4}>
-            <FormLabel htmlFor="isFurnished">Is Furnished?</FormLabel>
-            <Input
-              id="isFurnished"
-              type="checkbox"
-              value={isFurnished.toString()}
-              onChange={(e) => setIsFurnished(e.target.checked)}
-            />
-          </FormControl>
-
-          <FormControl mt={4}>
             <FormLabel htmlFor="imagesUrl">Images URLs:</FormLabel>
             <Input
               id="imagesUrl"
@@ -215,5 +203,6 @@ export default function ListItem({ contract }: ListItemsProps) {
       {status === 'error' && <Text mt={4} color="red">Error listing item. Please try again.</Text>}
       {status === 'loading' && <Text mt={4}>Listing item...</Text>}
     </Box>
+    </div>
   )
 }

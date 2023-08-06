@@ -20,8 +20,7 @@ struct PropertyMetadata {
     area_sq_ft: str[5],
     bedrooms: u8,
     bathrooms: u8,
-    description: str[150],
-    is_furnished: bool,
+    description: str[10],
     images_url: str[19],
 }
 

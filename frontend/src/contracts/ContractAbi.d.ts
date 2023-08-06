@@ -33,8 +33,8 @@ export type ContractIdInput = { value: string };
 export type ContractIdOutput = ContractIdInput;
 export type PropertyInput = { id: BigNumberish, price: BigNumberish, owner: IdentityInput, metadata: PropertyMetadataInput };
 export type PropertyOutput = { id: BN, price: BN, owner: IdentityOutput, metadata: PropertyMetadataOutput };
-export type PropertyMetadataInput = { name: string, location: string, area_sq_ft: string, bedrooms: BigNumberish, bathrooms: BigNumberish, description: string, is_furnished: boolean, images_url: string };
-export type PropertyMetadataOutput = { name: string, location: string, area_sq_ft: string, bedrooms: number, bathrooms: number, description: string, is_furnished: boolean, images_url: string };
+export type PropertyMetadataInput = { name: string, location: string, area_sq_ft: string, bedrooms: BigNumberish, bathrooms: BigNumberish, description: string, images_url: string };
+export type PropertyMetadataOutput = { name: string, location: string, area_sq_ft: string, bedrooms: number, bathrooms: number, description: string, images_url: string };
 
 interface ContractAbiInterface extends Interface {
   functions: {

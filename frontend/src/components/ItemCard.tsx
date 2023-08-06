@@ -34,10 +34,13 @@ export default function ItemCard({ item, contract }: ItemCardProps) {
   return (
     <div className="item-card">
       <div>Id: {parseFloat(item.id.format()) * 1_000_000_000}</div>
-      {/* <div>Metadata: {item.id}</div> */}
-      {/* <div>Owner: {item.owner.Address?.value}</div>
-      <div>Price: {parseFloat(item.price.format())} ETH</div>
-      <div>Total Bought: {parseFloat(item.total_bought.format()) * 1_000_000_000}</div> */}
+      <div> Description : {item.metadata.description}</div>
+      <div> OwnerAddress: {item.owner.Address?.value}</div>
+      <div> Location : {item.metadata.location}</div>
+      <img src="https://rb.gy/ufpa5" alt="property" />
+      <div> Area {item.metadata.area_sq_ft}</div>
+      <div> Bedrooms {item.metadata.bedrooms}</div>
+      <div> Price: {item.price.format()}</div>
       {status === 'success' && <div>Purchased ✅</div>}
       {status === 'error' && <div>Something went wrong ❌</div>}
       {status === 'none' &&  <Button onClick={handleBuyItem}>Buy Item</Button>}
