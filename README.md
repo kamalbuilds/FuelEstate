@@ -1,6 +1,5 @@
 # FuelEstate: Decentralized Real Estate Redefined
 
-![FuelEstate Logo](path_to_logo.png)
 
 FuelEstate brings a revolutionary approach to the age-old real estate market, crafting a bridge between tangible assets and the digital realm. Built meticulously on the Fuel blockchain with the elegance of Sway, our platform seeks to transform how we perceive, interact with, and transact in the real estate domain.
 
