@@ -12,14 +12,14 @@ use std::{
 };
 
 struct PropertyMetadata {
-    name: String,
-    location: String,
-    area_sq_ft: u64,
+    name: b256,
+    location: b256,
+    area_sq_ft: b256,
     bedrooms: u8,
     bathrooms: u8,
-    description: String,
+    description: str[100],
     is_furnished: bool,
-    images_url: String,
+    images_url: str[10],
 }
 
 struct Property {
@@ -50,6 +50,9 @@ abi RealEstateStore {
 
     #[storage(read)]
     fn get_count() -> u64;
+
+    #[storage(read)]
+    fn get_count() -> u64;
 }
 
 storage {
@@ -65,7 +68,7 @@ enum InvalidError {
     OnlyOwner: Identity,
 }
 
-impl SwayStore for Contract {
+impl RealEstateStore for Contract {
 
     #[storage(read, write)]
     fn list_property(price: u64, metadata: PropertyMetadata) {
@@ -103,18 +106,18 @@ impl SwayStore for Contract {
                 let commission = amount / 20;
                 let new_amount = amount - commission;
                 // send the payout minus commission to the seller
-                transfer(new_amount, asset_id, item.owner);
+                transfer(new_amount, asset_id, property.owner);
             } else {
                 // send the full payout to the seller
-                transfer(amount, asset_id, item.owner);
+                transfer(amount, asset_id, property.owner);
             }
         }
 
 
     #[storage(read)]
-    fn get_item(item_id: u64) -> Item {
-        // returns the item for the given item_id
-        storage.item_map.get(item_id).unwrap()
+    fn get_property(item_id: u64) -> Property {
+        // returns the property for the given item_id
+        storage.property_map.get(item_id).unwrap()
     }
 
     #[storage(read, write)]
@@ -150,6 +153,6 @@ impl SwayStore for Contract {
 
     #[storage(read)]
     fn get_count() -> u64 {
-        storage.item_counter
+        storage.property_counter
     }
 }
