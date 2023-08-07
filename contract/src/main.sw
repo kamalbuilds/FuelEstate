@@ -9,19 +9,19 @@ use std::{
         this_balance,
     },
     token::transfer,
-    // bytes:: Bytes,
+    // bytes:: Bytes, beta-3 doesnt support
     // string::String,
 };
 
 
 struct PropertyMetadata {
-    name: str[10],
+    name: str[11],
     location: str[11],
-    area_sq_ft: str[5],
+    area_sq_ft: u8,
     bedrooms: u8,
+    description: str[20],
     bathrooms: u8,
-    description: str[10],
-    images_url: str[19],
+    images_url: u64,
 }
 
 

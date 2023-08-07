@@ -20,14 +20,16 @@ export default function ListItem({ contract }: ListItemsProps) {
   const [status, setStatus] = useState<'success' | 'error' | 'loading' | 'none'>('none');
 
   const testData = {
-    name: "Luxury Apt",
-    location: "NewYork Cit",
-    area_sq_ft: "2000",
-    bedrooms: 3,
-    bathrooms: 2,
-    description: "Veryshortd",
-    images_url: "https://rb.gy/ufpa5",
+    name: "Luxury Flat",
+    location: "NewYork City",
+    area_sq_ft: 100,
+    bedrooms: 2,
+    description: "Flat for Sale",
+    bathrooms: 1,
+    images_url: 7563,
   };
+
+
       // A beautiful luxury apartment in the heart of the city.
 
   type PropertyMetadata = {

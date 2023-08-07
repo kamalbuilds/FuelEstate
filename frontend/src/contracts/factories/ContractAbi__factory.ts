@@ -33,12 +33,12 @@ const _abi = {
       "components": [
         {
           "name": "Address",
-          "type": 10,
+          "type": 8,
           "typeArguments": null
         },
         {
           "name": "ContractId",
-          "type": 11,
+          "type": 9,
           "typeArguments": null
         }
       ],
@@ -50,12 +50,12 @@ const _abi = {
       "components": [
         {
           "name": "IncorrectAssetId",
-          "type": 11,
+          "type": 9,
           "typeArguments": null
         },
         {
           "name": "NotEnoughTokens",
-          "type": 14,
+          "type": 12,
           "typeArguments": null
         },
         {
@@ -68,42 +68,30 @@ const _abi = {
     },
     {
       "typeId": 4,
-      "type": "str[10]",
-      "components": null,
-      "typeParameters": null
-    },
-    {
-      "typeId": 5,
       "type": "str[11]",
       "components": null,
       "typeParameters": null
     },
     {
-      "typeId": 6,
-      "type": "str[19]",
+      "typeId": 5,
+      "type": "str[20]",
       "components": null,
       "typeParameters": null
     },
     {
-      "typeId": 7,
+      "typeId": 6,
       "type": "str[21]",
       "components": null,
       "typeParameters": null
     },
     {
-      "typeId": 8,
+      "typeId": 7,
       "type": "str[25]",
       "components": null,
       "typeParameters": null
     },
     {
-      "typeId": 9,
-      "type": "str[5]",
-      "components": null,
-      "typeParameters": null
-    },
-    {
-      "typeId": 10,
+      "typeId": 8,
       "type": "struct Address",
       "components": [
         {
@@ -115,7 +103,7 @@ const _abi = {
       "typeParameters": null
     },
     {
-      "typeId": 11,
+      "typeId": 9,
       "type": "struct ContractId",
       "components": [
         {
@@ -127,17 +115,17 @@ const _abi = {
       "typeParameters": null
     },
     {
-      "typeId": 12,
+      "typeId": 10,
       "type": "struct Property",
       "components": [
         {
           "name": "id",
-          "type": 14,
+          "type": 12,
           "typeArguments": null
         },
         {
           "name": "price",
-          "type": 14,
+          "type": 12,
           "typeArguments": null
         },
         {
@@ -147,14 +135,14 @@ const _abi = {
         },
         {
           "name": "metadata",
-          "type": 13,
+          "type": 11,
           "typeArguments": null
         }
       ],
       "typeParameters": null
     },
     {
-      "typeId": 13,
+      "typeId": 11,
       "type": "struct PropertyMetadata",
       "components": [
         {
@@ -164,45 +152,45 @@ const _abi = {
         },
         {
           "name": "location",
-          "type": 5,
-          "typeArguments": null
-        },
-        {
-          "name": "area_sq_ft",
-          "type": 9,
-          "typeArguments": null
-        },
-        {
-          "name": "bedrooms",
-          "type": 15,
-          "typeArguments": null
-        },
-        {
-          "name": "bathrooms",
-          "type": 15,
-          "typeArguments": null
-        },
-        {
-          "name": "description",
           "type": 4,
           "typeArguments": null
         },
         {
+          "name": "area_sq_ft",
+          "type": 13,
+          "typeArguments": null
+        },
+        {
+          "name": "bedrooms",
+          "type": 13,
+          "typeArguments": null
+        },
+        {
+          "name": "description",
+          "type": 5,
+          "typeArguments": null
+        },
+        {
+          "name": "bathrooms",
+          "type": 13,
+          "typeArguments": null
+        },
+        {
           "name": "images_url",
-          "type": 6,
+          "type": 12,
           "typeArguments": null
         }
       ],
       "typeParameters": null
     },
     {
-      "typeId": 14,
+      "typeId": 12,
       "type": "u64",
       "components": null,
       "typeParameters": null
     },
     {
-      "typeId": 15,
+      "typeId": 13,
       "type": "u8",
       "components": null,
       "typeParameters": null
@@ -213,7 +201,7 @@ const _abi = {
       "inputs": [
         {
           "name": "property_id",
-          "type": 14,
+          "type": 12,
           "typeArguments": null
         }
       ],
@@ -225,15 +213,15 @@ const _abi = {
       },
       "attributes": [
         {
+          "name": "payable",
+          "arguments": []
+        },
+        {
           "name": "storage",
           "arguments": [
             "read",
             "write"
           ]
-        },
-        {
-          "name": "payable",
-          "arguments": []
         }
       ]
     },
@@ -242,7 +230,7 @@ const _abi = {
       "name": "get_count",
       "output": {
         "name": "",
-        "type": 14,
+        "type": 12,
         "typeArguments": null
       },
       "attributes": [
@@ -258,14 +246,14 @@ const _abi = {
       "inputs": [
         {
           "name": "item_id",
-          "type": 14,
+          "type": 12,
           "typeArguments": null
         }
       ],
       "name": "get_property",
       "output": {
         "name": "",
-        "type": 12,
+        "type": 10,
         "typeArguments": null
       },
       "attributes": [
@@ -299,12 +287,12 @@ const _abi = {
       "inputs": [
         {
           "name": "price",
-          "type": 14,
+          "type": 12,
           "typeArguments": null
         },
         {
           "name": "metadata",
-          "type": 13,
+          "type": 11,
           "typeArguments": null
         }
       ],
@@ -363,7 +351,7 @@ const _abi = {
       "logId": 2,
       "loggedType": {
         "name": "",
-        "type": 8,
+        "type": 7,
         "typeArguments": null
       }
     },
@@ -371,7 +359,7 @@ const _abi = {
       "logId": 3,
       "loggedType": {
         "name": "",
-        "type": 7,
+        "type": 6,
         "typeArguments": null
       }
     },

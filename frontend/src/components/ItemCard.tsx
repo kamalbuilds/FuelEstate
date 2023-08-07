@@ -29,12 +29,13 @@ export default function ItemCard({ item, contract }: ItemCardProps) {
       }
     }
   }
-  console.log("Item: ", item)
+  console.log("Item: ", item);
+  const sanitizedDescription = item.metadata.description.replace(/\u0000/g, '');
 
   return (
     <div className="item-card">
       <div>Id: {parseFloat(item.id.format()) * 1_000_000_000}</div>
-      <div> Description : {item.metadata.description}</div>
+      <div> Description : {sanitizedDescription}</div>
       <div> OwnerAddress: {item.owner.Address?.value}</div>
       <div> Location : {item.metadata.location}</div>
       <img src="https://rb.gy/ufpa5" alt="property" />

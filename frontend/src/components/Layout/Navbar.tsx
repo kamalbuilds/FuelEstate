@@ -40,14 +40,15 @@ const NavLink = (props: Props) => {
   )
 }
 
-export default function NavBar() {
+export default function NavBar( wallet : any) {
   const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure();
+  console.log(wallet.wallet?.address.bech32Address, "wallet")
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box><h1>FuelEstate 🏠</h1></Box>
+          <Box><h1 className='text-2xl'>FuelEstate 🏠</h1></Box>
           
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
@@ -77,13 +78,14 @@ export default function NavBar() {
                   </Center>
                   <br />
                   <Center>
-                    <p>Username</p>
+                    <p>Connected to: </p>
+                    <br/>
+                    <p>{wallet.wallet?.address.bech32Address}</p>
                   </Center>
                   <br />
                   <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
-                  <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
+                  <MenuItem>Your Properties</MenuItem>
+                  <Button onClick={wallet?.disconnect}>Disconnect</Button>
                 </MenuList>
               </Menu>
             </Stack>
