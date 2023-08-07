@@ -38,6 +38,9 @@ FuelEstate is built on the principles of decentralization. Your data, your asset
 Not just buying and selling. Tokenized properties can also be rented out through our platform, ensuring landlords and tenants a hassle-free rental experience.
 
 ---
+![image](https://github.com/kamalbuilds/FuelEstate/assets/95926324/035371ea-51d4-4eef-bbfb-38617b280deb)
+
+---
 
 ## Why FuelEstate?
 

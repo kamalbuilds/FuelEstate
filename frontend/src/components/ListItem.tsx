@@ -15,22 +15,19 @@ export default function ListItem({ contract }: ListItemsProps) {
   const [bedrooms, setBedrooms] = useState<number>(0);
   const [bathrooms, setBathrooms] = useState<number>(0);
   const [description, setDescription] = useState<string>("");
-  const [imagesUrl, setImagesUrl] = useState<string[]>([]);
+  const [imagesUrl, setImagesUrl] = useState<string>("");
   const [price, setPrice] = useState<string>("0");
   const [status, setStatus] = useState<'success' | 'error' | 'loading' | 'none'>('none');
 
   const testData = {
-    name: "Luxury Flat",
-    location: "NewYork City",
-    area_sq_ft: 100,
-    bedrooms: 2,
-    description: "Flat for Sale",
-    bathrooms: 1,
+    name: "Cottage",
+    location: "Spain",
+    area_sq_ft: 75,
+    bedrooms: 4,
+    description: "Cottage up for Rent",
+    bathrooms: 2,
     images_url: 7563,
   };
-
-
-      // A beautiful luxury apartment in the heart of the city.
 
   type PropertyMetadata = {
     name: string;
@@ -39,7 +36,7 @@ export default function ListItem({ contract }: ListItemsProps) {
     bedrooms: number;
     bathrooms: number;
     description: string;
-    images_url: string[];
+    images_url: string;
     };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -72,23 +69,6 @@ export default function ListItem({ contract }: ListItemsProps) {
     }
   }
 
-  async function test() {
-    if (contract !== null) {
-      try {
-        let priceInput = bn.parseUnits(price.toString());
-        await contract.functions.list_property(priceInput, testData).call();
-        setStatus('success');
-        showToast("success", "Item successfully listed!");
-      } catch (e) {
-        console.log("ERROR:", e);
-        setStatus('error');
-        showToast("error", "Error listing item. Please try again.");
-      }
-    } else {
-      console.log("ERROR: Contract is null");
-    }
-  }
-
   function showToast(status: 'success' | 'error', message: string) {
     toast({
       title: message,
@@ -101,7 +81,7 @@ export default function ListItem({ contract }: ListItemsProps) {
   return (
     <div className="flex justify-center items-center min-h-screen">
     <Box p={8}>
-      <Text fontSize="2xl" fontWeight="bold">List an Item</Text>
+      <Text fontSize="2xl" fontWeight="bold">List your Property</Text>
       {status === 'none' &&
         <form onSubmit={handleSubmit}>
           <FormControl mt={4} p={12}>
@@ -176,8 +156,8 @@ export default function ListItem({ contract }: ListItemsProps) {
               id="imagesUrl"
               type="text"
               required
-              value={imagesUrl.join(",")}
-              onChange={(e) => setImagesUrl(e.target.value.split(","))}
+              value={imagesUrl}
+              onChange={(e) => setImagesUrl(e.target.value)}
             />
           </FormControl>
 
@@ -196,8 +176,7 @@ export default function ListItem({ contract }: ListItemsProps) {
             />
           </FormControl>
 
-          <Button type="submit" mt={4} colorScheme="blue">List item</Button>
-          <Button onClick={test} mt={4} colorScheme="blue">Test</Button>
+          <Button type="submit" mt={4} colorScheme="blue">List Property</Button>
         </form>
       }
 

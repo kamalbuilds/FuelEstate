@@ -42,7 +42,7 @@ export default function AllItems({ contract }: AllItemsProps) {
 
   return (
     <div>
-      <h2>All Items</h2>
+      <h2>All Properties on FuelEstate</h2>
       {status === 'success' &&
         <div>
           {itemCount === 0 ? (
